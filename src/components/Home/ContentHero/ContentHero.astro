@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import Wrapper from '../../shared/Wrapper.astro';
+import './contentHero.scss'
+console.log("Astro", Astro.props);
+---
+
+<div class="content-hero">
+    <Wrapper>
+        <div class="content-hero-title">
+            <h2 set:html={Astro.props.data.contentHeroTitle} />
+        </div>
+        <div class="content-hero-sideimg">
+            <Image src={Astro.props.data.contentHeroSideImage.sourceUrl} alt={Astro.props.data.contentHeroSideImage.altText} width={500} inferSize={true} />
+        </div>
+        <div class="content-hero-content">
+            <div set:html={Astro.props.data.contentHeroContent} />
+        </div>
+    </Wrapper>
+
+    <div class="content-hero-img">
+        <Image src={Astro.props.data.contentHeroImage.sourceUrl} alt={Astro.props.data.contentHeroImage.altText} width={2000} inferSize={true} />
+    </div>
+</div>
