@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Home/Hero/Hero.astro';
+import Banner from '../components/Home/Banner/Banner.astro';
 
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
@@ -24,6 +25,15 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 								sourceUrl
 							}
 						}
+						bannerComponent {
+							bannerCloseCropImage {
+								altText
+								sourceUrl
+							}
+							bannerHighlight
+							bannerSubTitle
+							bannerTitle
+						}
 					}
 				}
 			}
@@ -36,5 +46,6 @@ const { data: { page: { homePageComponents } } } = await response.json();
 
 <Layout title="Welcome to Astro.">
 	<Hero data={homePageComponents.heroComponent} />
+	<Banner data={homePageComponents.bannerComponent} />
 </Layout>
 

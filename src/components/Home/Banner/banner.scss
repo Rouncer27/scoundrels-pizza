@@ -1,0 +1,59 @@
+@use "../../../styles/global/headlines";
+@use "../../../styles/abstracts/index" as *;
+.banner {
+  position: relative;
+  padding-top: 4.4rem;
+  padding-bottom: 3rem;
+
+  &-title {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 0;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin-top: 1rem;
+      text-transform: uppercase;
+    }
+  }
+
+  &-highlight {
+    width: 100%;
+    margin-top: 4rem;
+    text-align: center;
+
+    h2 {
+      @extend .hl-two;
+      display: inline-block;
+      padding: 1.5rem 3rem;
+      background-color: $blackColor;
+      color: $whiteColor;
+      font-weight: 500;
+      text-transform: uppercase;
+
+      @media (min-width: 768px) {
+        padding: 1.5rem 7rem;
+      }
+    }
+  }
+
+  &-cropped {
+    position: absolute;
+    bottom: 17rem;
+    left: 0%;
+    width: 22rem;
+    z-index: -1;
+
+    @media (min-width: 768px) {
+      bottom: 7.5rem;
+      width: 25rem;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

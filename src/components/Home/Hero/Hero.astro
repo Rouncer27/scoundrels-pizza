@@ -1,9 +1,6 @@
 ---
 import { Image } from 'astro:assets'
 import './hero.scss';
-
-console.log("Astro",Astro.props.data.heroImage.sourceUrl)
-
 ---
 
 <div class="hero">
@@ -12,5 +9,8 @@ console.log("Astro",Astro.props.data.heroImage.sourceUrl)
     </div>
     <div class="hero-logo-wrap">
         <h1><a href="/"><Image src={Astro.props.data.heroLogo.sourceUrl} alt="Scoundrels Pizza & Shareables" width={500} inferSize={true} /></a><span>Scoundrels Pizza & Shareables</span></h1>
+    </div>
+    <div class="hero-btn-wrap">
+        <a href="#">{Astro.props.data.heroButtonText}</a>
     </div>
 </div>

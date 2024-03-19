@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import Headline from '../../shared/Headline.astro';
+import Wrapper from '../../shared/Wrapper.astro';
+import './banner.scss';
+---
+
+<div class="banner">
+   <Wrapper>
+    <div class="banner-title">
+        <Headline ele="h2" hlstyle="one">{Astro.props.data.bannerTitle}</Headline>
+        <Headline ele="p" hlstyle="two">{Astro.props.data.bannerSubTitle}</Headline>
+        
+    </div>
+    <div class="banner-highlight">
+        <h2>{Astro.props.data.bannerHighlight}</h2>
+    </div>
+   </Wrapper>
+   <div class="banner-cropped">
+    <Image src={Astro.props.data.bannerCloseCropImage.sourceUrl} alt={Astro.props.data.bannerCloseCropImage.altText} inferSize={true} width={250} />
+   </div>
+</div>
