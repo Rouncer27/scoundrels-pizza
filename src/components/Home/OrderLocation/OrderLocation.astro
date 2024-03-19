@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import Wrapper from '../../shared/Wrapper.astro';
+import './orderLocation.scss'
+import Paragraph from '../../shared/Paragraph.astro';
+import Headline from '../../shared/Headline.astro';
+
+
+console.log("Astro", Astro.props.data);
+---
+
+<div class="order">
+   <Wrapper classes="order-wrap">
+    <div class="order-left">
+        <a href={`tel:+1${Astro.props.data.leftButtonPhoneNumber}`}>{Astro.props.data.leftButtonText}</a>
+        <Paragraph>{Astro.props.data.leftButtonContent}</Paragraph>
+    </div>
+    <div class="order-logo">
+        <Image src={Astro.props.data.mainLogo.sourceUrl} alt="Scoundrels Pizza & Shareables" width={500} inferSize={true} />
+    </div>
+    <div class="order-right">
+        <a href={`${Astro.props.data.rightButtonMenuPdf.sourceUrl}`}>{Astro.props.data.rightButtonText}</a>
+        <Paragraph>{Astro.props.data.rightButtonContent}</Paragraph>
+    </div>
+    <div class="order-location">
+        <Headline ele="h3" hlstyle="two">{Astro.props.data.bottomContentTitle}</Headline>
+        <Paragraph ele="p" pstyle="one">{Astro.props.data.bottomContentAddress}</Paragraph>
+    </div>
+   </Wrapper>
+   <div class="order-cropped">
+    <Image src={Astro.props.data.closeCroppedImage.sourceUrl} alt={Astro.props.data.closeCroppedImage.altText} inferSize={true} width={250} />
+   </div>
+</div>

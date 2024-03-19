@@ -1,0 +1,69 @@
+@use "../../../styles/global/buttons";
+
+.order {
+  position: relative;
+  padding: 5rem 0;
+
+  &-wrap {
+    align-items: center;
+  }
+
+  &-left,
+  &-right {
+    width: 100%;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      width: calc(35%);
+      padding: 0 3rem;
+    }
+
+    p {
+      margin-bottom: 0;
+      font-weight: 600;
+    }
+
+    a {
+      @extend .btn;
+      @extend .btn-one;
+      display: block;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  &-logo {
+    width: 100%;
+    padding: 0 4rem;
+
+    @media (min-width: 768px) {
+      width: calc(30%);
+    }
+  }
+
+  &-location {
+    width: 100%;
+    margin-top: 5rem;
+    text-align: center;
+
+    p {
+      font-weight: 600;
+    }
+  }
+
+  &-cropped {
+    position: absolute;
+    bottom: 17rem;
+    right: -5rem;
+    width: 14rem;
+    z-index: -1;
+
+    @media (min-width: 768px) {
+      bottom: 20rem;
+      width: 16rem;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
