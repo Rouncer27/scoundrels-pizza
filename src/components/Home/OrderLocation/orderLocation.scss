@@ -2,7 +2,7 @@
 
 .order {
   position: relative;
-  padding: 5rem 0;
+  padding: 5rem 0 1rem;
 
   &-wrap {
     align-items: center;
@@ -58,7 +58,7 @@
     z-index: -1;
 
     @media (min-width: 768px) {
-      bottom: 20rem;
+      bottom: 16rem;
       width: 16rem;
     }
 

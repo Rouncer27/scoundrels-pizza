@@ -1,0 +1,9 @@
+---
+import { Image } from 'astro:assets'
+import './pageHero.scss'
+---
+<div class="page-hero">
+    <div class="page-hero-img">
+        <Image src={Astro.props.data.pageHeroImage.sourceUrl} alt="Scoundrels Pizza & Shareables" width={2000} inferSize={true} />
+    </div>
+</div>

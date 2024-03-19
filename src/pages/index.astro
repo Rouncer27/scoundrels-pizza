@@ -4,6 +4,7 @@ import Hero from '../components/Home/Hero/Hero.astro';
 import Banner from '../components/Home/Banner/Banner.astro';
 import ContentHero from '../components/Home/ContentHero/ContentHero.astro';
 import OrderLocation from '../components/Home/OrderLocation/OrderLocation.astro';
+import PageHero from '../components/Home/PageHero/PageHero.astro';
 
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
@@ -68,6 +69,12 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 								sourceUrl
 							}
 						}
+						pageHeroComponent {
+							pageHeroImage {
+								altText
+								sourceUrl
+							}
+						}
 					}
 				}
 			}
@@ -83,5 +90,6 @@ const { data: { page: { homePageComponents } } } = await response.json();
 	<Banner data={homePageComponents.bannerComponent} />
 	<ContentHero data={homePageComponents.contentHeroComponent} />
 	<OrderLocation data={homePageComponents.orderLocationComponent} />
+	<PageHero data={homePageComponents.pageHeroComponent} />
 </Layout>
 
