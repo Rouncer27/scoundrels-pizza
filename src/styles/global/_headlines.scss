@@ -9,26 +9,27 @@
 }
 
 .hl-one {
-  @include utils.font-sizer(4, 6.5, 76.8, 150, 4);
+  @include utils.font-sizer(4, 7.1, 76.8, 150, 4);
   @extend .headline-all;
   font-family: abstracts.$secondaryFont;
-  line-height: 1.08;
+  font-weight: 500;
+  line-height: 1;
   color: abstracts.$blackColor;
 }
 
 .hl-two {
-  @include utils.font-sizer(4, 5.2, 76.8, 150, 4);
+  @include utils.font-sizer(2.8, 3.7, 76.8, 150, 2.8);
   @extend .headline-all;
   font-family: abstracts.$secondaryFont;
-  line-height: 1.23;
+  line-height: normal;
   color: abstracts.$blackColor;
 }
 
 .hl-three {
-  @include utils.font-sizer(2.5, 3.5, 76.8, 150, 2.5);
+  @include utils.font-sizer(2.4, 3.2, 76.8, 150, 2.4);
   @extend .headline-all;
   font-family: abstracts.$secondaryFont;
-  line-height: 1.27;
+  line-height: normal;
   color: abstracts.$blackColor;
 }
 
@@ -49,5 +50,5 @@
 }
 
 .hl-white {
-  color: abstracts.$creamColor;
+  color: abstracts.$whiteColor;
 }

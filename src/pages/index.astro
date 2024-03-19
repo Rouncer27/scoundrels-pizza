@@ -1,8 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Headline from '../components/shared/Headline.astro';
+import Paragraph from '../components/shared/Paragraph.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<h1>Scoundrels Pizza</h1>
+	<Headline ele="h1" hlstyle="one">Aliquam tincidunt mauris eu risus.</Headline>
+	<Headline ele="h2" hlstyle="two">Aliquam tincidunt mauris eu risus.</Headline>
+	<Headline ele="h4" hlstyle="three">Aliquam tincidunt mauris eu risus.</Headline>
+	<Paragraph pstyle="one">Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</Paragraph>
 </Layout>
 
