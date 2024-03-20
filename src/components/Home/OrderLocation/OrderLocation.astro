@@ -6,7 +6,7 @@ import Paragraph from '../../shared/Paragraph.astro';
 import Headline from '../../shared/Headline.astro';
 ---
 
-<div class="order">
+<div id="order-trigger" class="order">
    <Wrapper classes="order-wrap">
     <div class="order-left">
         <a title="Clicking this button will call our restaurant." href={`tel:+1${Astro.props.data.leftButtonPhoneNumber}`}>{Astro.props.data.leftButtonText}</a>
@@ -35,3 +35,37 @@ import Headline from '../../shared/Headline.astro';
     <Image src={Astro.props.data.closeCroppedImage.sourceUrl} alt={Astro.props.data.closeCroppedImage.altText} inferSize={true} width={250} />
    </div>
 </div>
+
+
+<script>
+    import gsap from "gsap"
+    import { ScrollTrigger } from "gsap/ScrollTrigger"
+    gsap.registerPlugin(ScrollTrigger)
+
+    const order = document.querySelector('#order-trigger');
+    const cropped = document.querySelector('.order-cropped');
+    if(order && cropped) {
+        gsap
+        .timeline({
+            scrollTrigger: {
+                trigger: order,
+                markers: false,
+                start: "top 150%",
+                end: "top -50%",
+                scrub: true,
+            },
+        })
+        .fromTo(
+            cropped,
+            {
+                y: 100,
+                duration: 1,
+                ease: "none"
+            },
+            {
+                y: -100,
+                ease: "none"
+            }
+        )
+    }
+</script>

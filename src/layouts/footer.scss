@@ -49,9 +49,13 @@
     &-oil {
       position: absolute;
       top: -2rem;
-      right: 0;
+      right: -5rem;
       width: 17.5rem;
       z-index: -1;
+
+      @media (min-width: 768px) {
+        right: 0;
+      }
     }
   }
 
