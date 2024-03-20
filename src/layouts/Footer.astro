@@ -1,7 +1,103 @@
 ---
+import { Image } from "astro:assets";
+import "./footer.scss";
+
+import skipTheDish from '../../public/skipthedish.png';
+import uberEats from '../../public/uber-eats.jpg';
+import doordash from '../../public/doordash.jpg';
+import Wrapper from "../components/shared/Wrapper.astro";
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+    query footerQuery {
+        footerOptions {
+            footerOptions {
+                deliveryServices {
+                    doordashUrl
+                    skipTheDishUrl
+                    uberEatsUrl
+                    croppedImage {
+                        altText
+                        sourceUrl
+                    }
+                }
+                contactInformation {
+                    contactAddress
+                    contactName
+                    contactNumber
+                }
+                socialMedia {
+                    instagramUrl
+                }
+            }
+        }
+    }
+  `,
+  }),
+});
+
+const {
+  data: {
+    footerOptions: {
+        footerOptions,
+    },
+  }
+} = await response.json();
+
+console.log("footerOptions: ", footerOptions)
 
 ---
 
-<footer>
-    <h1>Footer</h1>
+<footer class="main-footer">
+    <Wrapper>
+        <div class="delivery">
+            <div class="delivery-link delivery-skip">
+                <div class="delivery-skip-wrap">
+
+                    <a  
+                    href={footerOptions.deliveryServices.skipTheDishUrl}
+                    title="Get Delivery on skip the dish. This link opening in a new window."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                    <Image src={skipTheDish} alt="Skip the dish" />
+                </a>
+            </div>
+            </div>
+            <div class="delivery-link delivery-uber">
+                <div class="delivery-uber-wrap">
+
+                    <a  
+                    href={footerOptions.deliveryServices.uberEatsUrl}
+                    title="Get Delivery on Uber Eats. This link opening in a new window."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                    <Image src={uberEats} alt="Uber East" />
+                </a>
+            </div>
+            </div>
+            <div class="delivery-link delivery-door">
+                <div class="delivery-door-wrap">
+                    <a
+                        href={footerOptions.deliveryServices.doordashUrl}
+                        title="Get Delivery on Doordash. This link opening in a new window."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <Image src={doordash} alt="Doordash" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="delivery-oil">
+                <Image src={footerOptions.deliveryServices.croppedImage.sourceUrl} alt={footerOptions.deliveryServices.croppedImage.altText} width={250} inferSize={true} />
+            </div>
+        </div>
+    </Wrapper>
 </footer>

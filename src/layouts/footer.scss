@@ -1,0 +1,38 @@
+.main-footer {
+  padding-top: 4.1rem;
+
+  .delivery {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 4.8rem;
+
+    &-link {
+      width: 100%;
+
+      @media (min-width: 768px) {
+        width: 20rem;
+      }
+    }
+
+    &-skip {
+      &-wrap {
+        max-width: 9rem;
+      }
+    }
+
+    &-uber {
+      &-wrap {
+        max-width: 12.5rem;
+      }
+    }
+
+    &-door {
+      &-wrap {
+        max-width: 20rem;
+      }
+    }
+  }
+}
