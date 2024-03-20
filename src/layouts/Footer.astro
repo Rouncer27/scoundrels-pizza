@@ -1,11 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import "./footer.scss";
+import Wrapper from "../components/shared/Wrapper.astro";
 
 import skipTheDish from '../../public/skipthedish.png';
 import uberEats from '../../public/uber-eats.jpg';
 import doordash from '../../public/doordash.jpg';
-import Wrapper from "../components/shared/Wrapper.astro";
+import instagram from '../../public/instagram.png';
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -48,9 +49,6 @@ const {
     },
   }
 } = await response.json();
-
-console.log("footerOptions: ", footerOptions)
-
 ---
 
 <footer class="main-footer">
@@ -58,35 +56,33 @@ console.log("footerOptions: ", footerOptions)
         <div class="delivery">
             <div class="delivery-link delivery-skip">
                 <div class="delivery-skip-wrap">
-
                     <a  
                     href={footerOptions.deliveryServices.skipTheDishUrl}
-                    title="Get Delivery on skip the dish. This link opening in a new window."
+                    title="Get Delivery on skip the dish. This link opens in a new window."
                     target="_blank"
                     rel="noopener noreferrer"
                     >
-                    <Image src={skipTheDish} alt="Skip the dish" />
-                </a>
-            </div>
+                        <Image src={skipTheDish} alt="Skip the dish" />
+                    </a>
+                </div>
             </div>
             <div class="delivery-link delivery-uber">
                 <div class="delivery-uber-wrap">
-
                     <a  
                     href={footerOptions.deliveryServices.uberEatsUrl}
-                    title="Get Delivery on Uber Eats. This link opening in a new window."
+                    title="Get Delivery on Uber Eats. This link opens in a new window."
                     target="_blank"
                     rel="noopener noreferrer"
                     >
-                    <Image src={uberEats} alt="Uber East" />
-                </a>
-            </div>
+                        <Image src={uberEats} alt="Uber East" />
+                    </a>
+                </div>
             </div>
             <div class="delivery-link delivery-door">
                 <div class="delivery-door-wrap">
                     <a
                         href={footerOptions.deliveryServices.doordashUrl}
-                        title="Get Delivery on Doordash. This link opening in a new window."
+                        title="Get Delivery on Doordash. This link opens in a new window."
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -94,10 +90,29 @@ console.log("footerOptions: ", footerOptions)
                     </a>
                 </div>
             </div>
-
             <div class="delivery-oil">
                 <Image src={footerOptions.deliveryServices.croppedImage.sourceUrl} alt={footerOptions.deliveryServices.croppedImage.altText} width={250} inferSize={true} />
             </div>
         </div>
     </Wrapper>
+    <div class="contact">
+        <Wrapper>
+            <div class="contact-wrap">
+                <div class="contact-information">
+                    <p>{footerOptions.contactInformation.contactName}</p>
+                    <p><a href={`tel:+1${footerOptions.contactInformation.contactNumber}`}>{footerOptions.contactInformation.contactNumber}</a>{footerOptions.contactInformation.contactAddress}</p>
+                </div>
+                <div class="contact-social">
+                    <a
+                    href={footerOptions.socialMedia.instagramUrl}
+                    title="Follow us on Instagram. This link opens in a new window."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <Image src={instagram} alt="Doordash" />
+                </a>
+                </div>
+            </div>
+        </Wrapper>
+    </div>
 </footer>
