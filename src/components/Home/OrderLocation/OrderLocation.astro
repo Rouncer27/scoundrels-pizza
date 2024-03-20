@@ -44,7 +44,13 @@ import Headline from '../../shared/Headline.astro';
 
     const order = document.querySelector('#order-trigger');
     const cropped = document.querySelector('.order-cropped');
-    if(order && cropped) {
+    const logo = document.querySelector('.order-logo');
+    const btnLeft = document.querySelector('.order-left a');
+    const contentLeft = document.querySelector('.order-left p');
+    const btnRight = document.querySelector('.order-right a');
+    const contentRight = document.querySelector('.order-right p');
+
+    if(order && cropped && logo && btnLeft && contentLeft && btnRight && contentRight) {
         gsap
         .timeline({
             scrollTrigger: {
@@ -66,6 +72,85 @@ import Headline from '../../shared/Headline.astro';
                 y: -100,
                 ease: "none"
             }
+        )
+
+    gsap
+        .timeline({
+            scrollTrigger: {
+                trigger: order,
+                markers: false,
+                start: "top 75%",
+            },
+        })
+        .add("start")
+        .fromTo(
+            logo,
+            {
+                autoAlpha:0,
+                y: 100,
+               
+            },
+            {
+                autoAlpha: 1,
+                y: 0,
+                duration: 2,
+                ease: "power2.out",
+            }, "start"
+        )
+        .fromTo(
+            btnLeft,
+            {
+                autoAlpha:0,
+                x: -100,
+               
+            },
+            {
+                autoAlpha: 1,
+                x: 0,
+                duration: 1,
+                ease: "power2.out",
+            }, "start+=1"
+        )
+        .fromTo(
+            contentLeft,
+            {
+                autoAlpha:0,
+                x: -100,
+               
+            },
+            {
+                autoAlpha: 1,
+                x: 0,
+                duration: 1,
+                ease: "power2.out",
+            }, "start+=1"
+        )
+        .fromTo(
+            btnRight,
+            {
+                autoAlpha:0,
+                x: 100,
+               
+            },
+            {
+                autoAlpha: 1,
+                x: 0,
+                duration: 1,
+                ease: "power2.out",
+            }, "start+=1"
+        )
+        .fromTo(
+            contentRight,
+            {
+                autoAlpha:0,
+                x: 100,
+            },
+            {
+                autoAlpha: 1,
+                x: 0,
+                duration: 1,
+                ease: "power2.out",
+            }, "start+=1"
         )
     }
 </script>
