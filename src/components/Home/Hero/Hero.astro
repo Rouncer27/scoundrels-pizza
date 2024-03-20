@@ -14,3 +14,22 @@ import './hero.scss';
         <a title="Clicking this button will call our restaurant." href={`tel:+1${Astro.props.data.heroButtonOrderNumber}`}>{Astro.props.data.heroButtonText}</a>
     </div>
 </div>
+
+<script>
+    import gsap from "gsap"
+    import { TextPlugin } from "gsap/TextPlugin"
+    gsap.registerPlugin(TextPlugin)
+    
+    const mainLogo = document.querySelector('.hero-logo-wrap')
+    const callButton = document.querySelector('.hero-btn-wrap')
+
+    if(mainLogo && callButton) {
+        gsap
+        .timeline({delay:0.5})
+        .add("start")
+        .fromTo(mainLogo, {autoAlpha:0, y:100},{autoAlpha:1, y:0, duration:1.5}, "start")
+        .fromTo(callButton, {autoAlpha:0, x:800},{autoAlpha:1, x:0, ease: "elastic.out(0.7,0.2)", duration:1.5},"start+=0.75");
+    }
+
+
+</script>
