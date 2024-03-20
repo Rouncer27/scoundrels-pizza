@@ -19,6 +19,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 					homePageComponents {
 						heroComponent {
 							heroButtonText
+							heroButtonOrderNumber
 							heroImage {
 								altText
 								sourceUrl
@@ -66,7 +67,7 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 								sourceUrl
 							}
 							rightButtonMenuPdf {
-								sourceUrl
+								mediaItemUrl
 							}
 						}
 						pageHeroComponent {
