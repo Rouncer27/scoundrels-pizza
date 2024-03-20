@@ -16,6 +16,17 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
     	query: `
 			query homePageQuery {
 				page(id: "/", idType: URI) {
+
+					seo {
+						title
+						metaDesc
+					}
+					featuredImage {
+						node {
+							sourceUrl
+						}
+					}
+
 					homePageComponents {
 						heroComponent {
 							heroButtonText
@@ -83,14 +94,20 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   	}),
 });
 
-const { data: { page: { homePageComponents } } } = await response.json();
+const {data: {page}, data: { page: { homePageComponents } } } = await response.json();
 
-
+const title = page.seo?.title ? page.seo?.title : null;
+const description = page.seo?.metaDesc
+  ? page.seo?.metaDesc
+  : null;
+const metaImg = page.featuredImage?.node?.sourceUrl
+  ? page.featuredImage?.node?.sourceUrl
+  : null;
 
 
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout metaTitle={title} metaDescription={description} metaImg={metaImg}>
 	<Hero data={homePageComponents.heroComponent} />
 	<Banner data={homePageComponents.bannerComponent} />
 	<ContentHero data={homePageComponents.contentHeroComponent} />
