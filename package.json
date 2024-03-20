@@ -13,6 +13,7 @@
     "@fontsource/bitter": "^5.0.17",
     "@fontsource/roboto-condensed": "^5.0.15",
     "astro": "^4.5.6",
+    "gsap": "npm:@gsap/shockingly@^3.12.5",
     "sass": "^1.72.0"
   }
 }
