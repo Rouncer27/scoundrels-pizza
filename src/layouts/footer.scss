@@ -14,26 +14,34 @@
 
     &-link {
       width: 100%;
+      text-align: center;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
 
       @media (min-width: 768px) {
         width: 20rem;
+        margin-top: 0;
+        margin-bottom: 0;
       }
     }
 
     &-skip {
       &-wrap {
+        margin: auto;
         max-width: 9rem;
       }
     }
 
     &-uber {
       &-wrap {
+        margin: auto;
         max-width: 12.5rem;
       }
     }
 
     &-door {
       &-wrap {
+        margin: auto;
         max-width: 20rem;
       }
     }
@@ -82,15 +90,22 @@
 
     &-social {
       width: calc(100%);
-      text-align: center;
+      margin-top: 2.5rem;
+      text-align: left;
 
       @media (min-width: 768px) {
         width: calc(25%);
+        margin-top: 0;
+        text-align: center;
       }
 
       a {
         display: inline-block;
-        max-width: 4rem;
+        max-width: 6rem;
+
+        @media (min-width: 768px) {
+          max-width: 4rem;
+        }
       }
     }
   }
