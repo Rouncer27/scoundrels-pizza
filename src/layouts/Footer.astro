@@ -53,7 +53,7 @@ const {
 
 <footer class="main-footer">
     <Wrapper>
-        <div class="delivery">
+        <div id="main-footer-tigger" class="delivery">
             <div class="delivery-link delivery-skip">
                 <div class="delivery-skip-wrap">
                     <a  
@@ -116,3 +116,31 @@ const {
         </Wrapper>
     </div>
 </footer>
+
+
+<script>
+    import gsap from "gsap"
+    import { ScrollTrigger } from "gsap/ScrollTrigger"
+    gsap.registerPlugin(ScrollTrigger)
+
+    const footer = document.querySelector('#main-footer-tigger');
+    const logos = document.querySelectorAll('.delivery-link');
+
+    if(footer && logos) {
+        gsap
+        .timeline({
+            scrollTrigger :{
+                trigger: footer,
+                markers: false,
+                start: "top 110%",
+                toggleActions: "play none none none",
+            }
+        })
+        .fromTo(
+            logos,
+            {autoAlpha: 0, y: 150,},{ autoAlpha: 1, y: 0, ease: "power2.inOut", stagger: { amount: 0.75,},
+        }
+      )
+    }
+
+</script>
