@@ -8,7 +8,9 @@ import './hero.scss';
         <Image src={Astro.props.data.heroImage.sourceUrl} alt="Scoundrels Pizza & Shareables" width={2000} inferSize={true} />
     </div>
     <div class="hero-logo-wrap">
-        <h1><a href="/"><Image src={Astro.props.data.heroLogo.sourceUrl} alt="Scoundrels Pizza & Shareables" width={500} inferSize={true} /></a><span>Scoundrels Pizza & Shareables</span></h1>
+        <div class="hero-logo-wrap-inner">
+            <h1><a href="/"><Image src={Astro.props.data.heroLogo.sourceUrl} alt="Scoundrels Pizza & Shareables" width={500} inferSize={true} /></a><span>Scoundrels Pizza & Shareables</span></h1>
+        </div>
     </div>
     <div class="hero-btn-wrap">
         <a title="Clicking this button will call our restaurant." href={`tel:+1${Astro.props.data.heroButtonOrderNumber}`}>{Astro.props.data.heroButtonText}</a>
