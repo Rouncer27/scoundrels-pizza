@@ -1,6 +1,7 @@
 ---
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
+import CookiePopup from '../components/shared/CookiePopup.jsx';
 import "../styles/styles.scss";
 import { baseData } from "../data/siteData";
 
@@ -51,12 +52,12 @@ const baseUrl = Astro.url ? Astro.url : baseData.url;
 		 <meta name="twitter:image" content={imgSrc} />
 		 <meta name="twitter:image:alt" content={description} />
 		 <meta name="twitter:creator" content={"Scoundrels Pizza & Shareables"} />
-
 	</head>
 	<body>
 		<div class="main-wrapper">
 			<Header />
 			<slot />
+			<CookiePopup client:only="react" />
 			<Footer />
 		  </div>
 	</body>
