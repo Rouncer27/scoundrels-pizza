@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MainContent from '../components/PrivacyPolicy/MainContent.astro';
+
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+	method: "POST",
+	headers: {
+		"content-type": "application/json",
+	},
+	body: JSON.stringify({
+    	query: `
+        query privacyPolicyPageQuery {
+            page(id: "/privacy-policy", idType: URI) {
+                seo {
+                    title
+                    metaDesc
+                }
+                featuredImage {
+                    node {
+                        sourceUrl
+                    }
+                }
+                privacyPolicyComponents {
+                    mainContentComponent {
+                        content
+                        title
+                    }
+                }
+            }
+        }
+        `,
+  	}),
+});
+
+const {data: {page}, data: { page: { privacyPolicyComponents } } } = await response.json();
+
+const title = page.seo?.title ? page.seo?.title : null;
+const description = page.seo?.metaDesc
+  ? page.seo?.metaDesc
+  : null;
+const metaImg = page.featuredImage?.node?.sourceUrl
+  ? page.featuredImage?.node?.sourceUrl
+  : null;
+
+---
+
+<Layout metaTitle={title} metaDescription={description} metaImg={metaImg}>
+    <MainContent data={privacyPolicyComponents.mainContentComponent} />
+</Layout>
