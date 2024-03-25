@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://scoundrelspizza.com/sitemap-index.xml
