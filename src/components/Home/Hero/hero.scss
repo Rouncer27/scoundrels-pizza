@@ -4,7 +4,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  max-height: 40rem;
+  max-height: 50rem;
   overflow: hidden;
 
   @media (min-width: 768px) {
@@ -58,7 +58,7 @@
     }
 
     &-inner {
-      margin-bottom: 10rem;
+      margin-bottom: 20rem;
 
       @media (min-width: 768px) {
         margin-bottom: 0;
@@ -82,6 +82,9 @@
   }
 
   &-btn-wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     position: absolute;
     bottom: 2rem;
     left: 2rem;
@@ -96,6 +99,11 @@
     a {
       @extend .btn;
       @extend .btn-two;
+      margin: 1rem 4rem;
+
+      @media (min-width: 768px) {
+        margin: 0 2rem;
+      }
     }
   }
 }

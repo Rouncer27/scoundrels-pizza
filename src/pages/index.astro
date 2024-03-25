@@ -29,7 +29,11 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 					homePageComponents {
 						heroComponent {
 							heroButtonText
+							heroButtonTwoText
 							heroButtonOrderNumber
+							heroButtonTwoPdfDownload {
+								mediaItemUrl
+							}
 							heroImage {
 								altText
 								sourceUrl

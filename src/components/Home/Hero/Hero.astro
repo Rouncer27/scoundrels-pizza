@@ -14,6 +14,11 @@ import './hero.scss';
     </div>
     <div class="hero-btn-wrap">
         <a title="Clicking this button will call our restaurant." href={`tel:+1${Astro.props.data.heroButtonOrderNumber}`}>{Astro.props.data.heroButtonText}</a>
+        <a 
+            target="_blank"
+            rel="noopener noreferrer" 
+            title="Clicking this button will download our menu in a new window." 
+            href={`${Astro.props.data.heroButtonTwoPdfDownload.mediaItemUrl}`}>{Astro.props.data.heroButtonTwoText}</a>
     </div>
 </div>
 
